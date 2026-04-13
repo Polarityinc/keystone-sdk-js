@@ -1,0 +1,27 @@
+{
+  "name": "@polarity/keystone",
+  "version": "0.1.0",
+  "description": "TypeScript/JavaScript SDK for the Keystone agent validation platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Polarityinc/keystone-sdk-js.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
+}
