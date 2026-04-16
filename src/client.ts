@@ -6,6 +6,7 @@ import { AlertService } from './alerts';
 import { AgentService } from './agents';
 import { DatasetService } from './datasets';
 import { ScoringService } from './scoring';
+import { UsageService } from './usage';
 import { wrapClient } from './wrap';
 import { initTracing } from './tracing';
 import type { Sandbox } from './types';
@@ -33,6 +34,7 @@ export class Keystone {
   agents: AgentService;
   datasets: DatasetService;
   scoring: ScoringService;
+  usage: UsageService;
 
   /** @internal — exposed for the wrap() helper. Not part of the public API. */
   readonly _http: HttpClient;
@@ -52,6 +54,7 @@ export class Keystone {
     this.agents = new AgentService(http);
     this.datasets = new DatasetService(http);
     this.scoring = new ScoringService(http);
+    this.usage = new UsageService(http);
   }
 
   /**

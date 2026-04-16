@@ -1,5 +1,5 @@
 {
-  "name": "@polarity/keystone",
+  "name": "polarity-keystone",
   "version": "0.1.0",
   "description": "TypeScript/JavaScript SDK for the Keystone agent validation platform",
   "main": "dist/index.js",
