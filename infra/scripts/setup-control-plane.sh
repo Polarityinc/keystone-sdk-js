@@ -188,6 +188,10 @@ policy_eval {
   }
 }
 
+# Auto-load policy files from this directory at startup so we don't need to
+# run \`nomad-autoscaler policy apply\` manually after boot.
+policy_dir = "/etc/nomad-autoscaler/policies"
+
 apm "nomad-apm" {
   driver = "nomad-apm"
 }
@@ -197,8 +201,11 @@ strategy "target-value" {
 }
 HCL
 
+mkdir -p /etc/nomad-autoscaler/policies
+
 # Autoscaling policy: watch for pending sandbox allocations.
-cat > /etc/nomad-autoscaler/policy.hcl <<HCL
+# Placed in policies/ directory so it's auto-loaded by nomad-autoscaler on start.
+cat > /etc/nomad-autoscaler/policies/keystone-workers.hcl <<HCL
 scaling "keystone-workers" {
   enabled = true
   type    = "cluster"
